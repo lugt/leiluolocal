@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="hibernate.cfg.xml" value="292aa755-aa84-4e7f-abfd-12948449cce6" />
+        </datasource-map>
+        <naming-strategy-map>
+          <unit-entry name="hibernate.cfg.xml" />
+        </naming-strategy-map>
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="netty-all-4.1.7.Final" level="project" />
+    <orderEntry type="library" name="Hibernate 5.2.11-5.2.11" level="project" />
+    <orderEntry type="library" name="Hibernate 5.2.11-5.2.11" level="project" />
+    <orderEntry type="library" name="hibernate-c3p0-5.2.7.Final" level="project" />
+    <orderEntry type="library" name="c3p0-0952" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.35-bin (2)" level="project" />
+    <orderEntry type="library" name="commons-codec-1.9" level="project" />
+    <orderEntry type="library" name="json-20160810" level="project" />
+    <orderEntry type="library" name="RXTXcomm" level="application" />
+    <orderEntry type="library" name="Redis-Lettuce" level="project" />
+  </component>
+</module>

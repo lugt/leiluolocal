@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="iotsampl.iot.oo.MiheWarnsEntity" table="mihe_warns" schema="mihe">
+        <id name="globalid">
+            <column name="globalid" sql-type="int(16)"/>
+            <generator class="native"/>
+        </id>
+        <property name="chid">
+            <column name="chid" sql-type="int(12)" not-null="true"/>
+        </property>
+        <property name="warn">
+            <column name="warn" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="start">
+            <column name="start" sql-type="bigint(20)"/>
+        </property>
+    </class>
+</hibernate-mapping>

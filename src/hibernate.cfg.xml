@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="connection.autocommit">true</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/mihe</property>
+        <property name="connection.username">mihe</property>
+        <property name="connection.password">mihe</property>
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection_provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+
+        <property name="c3p0.minPoolSize">3</property>
+        <property name="c3p0.maxPoolSize">5</property>
+        <property name="c3p0.acquireIncrement">1</property>
+        <property name="c3p0.maxStatements">0</property>
+
+        <property name="c3p0.timeout">5</property>
+        <property name="c3p0.idle_test_period">30</property>
+
+
+        <mapping resource="iotsampl/iot/oo/MiheChannelCacheEntity.hbm.xml"/>
+        <mapping class="iotsampl.iot.oo.MiheChannelDataEntity"/>
+
+        <mapping resource="iotsampl/iot/oo/MiheChannelDataEntity.hbm.xml"/>
+        <mapping resource="iotsampl/iot/oo/MiheOptionEntity.hbm.xml"/>
+
+        <mapping class="iotsampl.iot.oo.MiheOptionEntity"/>
+        <mapping class="iotsampl.iot.oo.MiheUserEntity"/>
+
+        <mapping resource="iotsampl/iot/oo/MiheUserEntity.hbm.xml"/>
+        <mapping class="iotsampl.iot.oo.MiheChannelCacheEntity"/>
+
+        <mapping resource="iotsampl/iot/oo/MiheWarnsEntity.hbm.xml"/>
+        <mapping class="iotsampl.iot.oo.MiheWarnsEntity"/>
+
+        <!-- DB schema will be updated if needed -->
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL-Earth - earth@localhost" uuid="cb481305-fc36-4c03-91ef-5e2efe02c4d1">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="MySQL - earthbase@localhost" uuid="8e3e8cb1-9e31-4b25-a87e-5d142d5291ce">
+    <database-info product="MySQL" version="5.5.20" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="earthbase"/>
+    <table name="extendv" schema="" catalog="earthbase" type="TABLE">
+      <column name="etid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="facial" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="facialset" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="finger" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="print" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="authen" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="authentime" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="authenmeth" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="etid"/>
+    </table>
+    <table name="userdao" schema="" catalog="earthbase" type="TABLE">
+      <column name="etid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="displayName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="extendv" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cellphone" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="identity" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sessid" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="etid"/>
+      <index name="cellphone" unique="true" columns="cellphone"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - @localhost" uuid="20fed8b0-ea15-4b9e-afbb-97548b7de4f2">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
