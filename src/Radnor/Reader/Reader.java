@@ -413,7 +413,6 @@ public class Reader extends Thread implements SerialPortEventListener { // Seria
             s = "cba";
             IotManager.getOne().getNode(40200001).quick_record(s,t);
 
-
             s = "0";
             IotManager.getOne().getNode(40100002).quick_record(s,t);
             s = "0";
