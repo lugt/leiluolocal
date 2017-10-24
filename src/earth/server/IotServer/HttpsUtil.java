@@ -29,7 +29,9 @@ public class HttpsUtil {
         con.setRequestProperty("User-Agent", "Mozilla/5.0 Google/Chrome (Windows NT 6.1; WOW64)");
         con.setRequestProperty("Accept-Language", "zh-CN,en;q=0.5");
         con.setRequestMethod("POST");
-        con.setDoOutput(true);
+        con.setReadTimeout(40000);
+        con.setConnectTimeout(40000);
+        //con.setDoOutput(true);
         if(data != null && data.length > 0) {
             con.setDoInput(true);
             OutputStream out = con.getOutputStream();

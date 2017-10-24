@@ -22,7 +22,7 @@ public class IotApi {
      *  处理请求
      *  执行相关方法
      * */
-    public String distributeCall(String a , ByteBuf content) throws Exception {
+    public static String distributeCall(String a , ByteBuf content) throws Exception {
         // Authenticate
         if (a != null && a.length() > 0) {
             String[] k = a.split(",");
@@ -66,13 +66,13 @@ public class IotApi {
         }
     }
 
-    private String reloadNode(long g) {
+    private static String reloadNode(long g) {
         int shortId = IotIds.extractShorId(g);
         IotManager.getOne().getNode(shortId).init();
         return "CA,ok";
     }
 
-    private String saveProtocol(long g, String value) throws Exception{
+    private static String saveProtocol(long g, String value) throws Exception{
         try {
             int shortId = IotIds.extractShorId(g);
             IotSync.setOption("pR-" + shortId, value);
@@ -83,7 +83,7 @@ public class IotApi {
         return "CA,ok,"+value;
     }
 
-    private String saveChannel(long gid,ByteBuf content) throws NumberFormatException, NullPointerException, IOException, Exception {
+    private static String saveChannel(long gid, ByteBuf content) throws NumberFormatException, NullPointerException, IOException, Exception {
         int lastindex = 0;
         String l = content.toString(Charset.forName("UTF-8"));
         if(l == null) return "CA,fail,nullcontent";
@@ -147,7 +147,7 @@ public class IotApi {
         return "CA,ok,"+Long.toHexString(lastindex);
     }
 
-    private long checkAuth(String orig,String ans,String gid) throws Exception {
+    private static long checkAuth(String orig, String ans, String gid) throws Exception {
         try {
             if(Objects.equals(SHA3Digest.StringDigest(256, orig + getAuth(gid)), ans)){
                 return Long.parseLong(gid,16);
@@ -161,7 +161,7 @@ public class IotApi {
         return -100;
     }
 
-    private String getAuth(String gid) throws Exception {
+    private static String getAuth(String gid) throws Exception {
         return "#*CBDCYBVV*!*'A{5150231215671975549678070113093598753779818874173425479177197()(OP:P#!P_+)_)''''!+(@*&@&*^#)";
     }
 

@@ -15,7 +15,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  * Version :17
  * Earth - Moudule iotsampl
  */
-public class Constant {
+public class DataService {
     public static final String REDIS_SERVER = "localhost";
 
     private static SessionFactory sessionFactory = null;
@@ -84,15 +84,16 @@ public class Constant {
         Transaction tr = session.getTransaction();
         if(tr == null){
             tr = session.beginTransaction();
-            tr.setTimeout(1);
+            tr.setTimeout(3);
             return tr;
         }else{
             if(!tr.isActive()){
                 tr = session.beginTransaction();
-                tr.setTimeout(1);
+                tr.setTimeout(3);
                 return tr;
             }else{
                 tr = session.beginTransaction();
+                tr.setTimeout(3);
                 return tr;
             }
         }

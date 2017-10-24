@@ -5,7 +5,7 @@ import iotsampl.iot.cloud.IotCloudAutomate;
 import iotsampl.iot.core.IotLogger;
 
 import java.util.concurrent.TimeUnit;
-import iotsampl.Constant;
+import iotsampl.DataService;
 
 /**
  * Created by Frapo on 2017/1/22.
@@ -44,7 +44,7 @@ public class CloudServer {
         } catch (InterruptedException e) {
             //e.printStackTrace();
         } finally {
-            Constant.close();
+            DataService.close();
         }
     }
 }

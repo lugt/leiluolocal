@@ -2,7 +2,7 @@ package Radnor.Reader;
 
 import Radnor.Utils.LocalDataProvider;
 import earth.server.Local;
-import iotsampl.Constant;
+import iotsampl.DataService;
 import iotsampl.iot.core.IotLogger;
 
 import java.util.Objects;
@@ -47,7 +47,7 @@ public class ReaderMain {
         } catch (InterruptedException e) {
             //e.printStackTrace();
         } finally {
-            Constant.close();
+            DataService.close();
         }
     }
 }

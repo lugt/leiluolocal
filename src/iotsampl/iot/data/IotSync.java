@@ -1,7 +1,7 @@
 package iotsampl.iot.data;
 
 import earth.server.Monitor;
-import iotsampl.Constant;
+import iotsampl.DataService;
 import iotsampl.iot.core.IotLogger;
 import iotsampl.iot.oo.*;
 import org.hibernate.Session;
@@ -34,7 +34,7 @@ public class IotSync {
         if(inis)return;
         inis = true;
         try {
-            Constant.setUp();
+            DataService.setUp();
         } catch (Exception e) {
             Monitor.error("Hibernate 服务启动失败" +e.getMessage());
             System.exit(0);
@@ -57,7 +57,7 @@ public class IotSync {
     private static void localSave(int chid, long time, long data) throws ArithmeticException,IOException {
         // Check Status
 
-        if(Constant.isSessionAlive()) {
+        if(DataService.isSessionAlive()) {
             localsavedata(chid, data, Math.toIntExact(time));
             /*long m = rdc.zadd("ch" + id, time, data);
             if(m <= 0){
@@ -90,8 +90,8 @@ public class IotSync {
     }*/
     public static List<MiheWarnsEntity> localgetwarn(int chid, long start, long end, int len,boolean rev){
         try {
-            Session session = Constant.getSession();
-            Transaction tx = Constant.getTransact(session);
+            Session session = DataService.getSession();
+            Transaction tx = DataService.getTransact(session);
             String xtr;
             if(rev) {
                 xtr = "order by start desc";
@@ -115,8 +115,8 @@ public class IotSync {
 
     public static List<MiheChannelDataEntity> localgetdata(int chid, long start, long end, int len, boolean rev){
         try {
-            Session session = Constant.getSession();
-            Transaction tx = Constant.getTransact(session);
+            Session session = DataService.getSession();
+            Transaction tx = DataService.getTransact(session);
             String xtr;
             if(rev) {
                 xtr = "order by start desc";
@@ -141,8 +141,8 @@ public class IotSync {
     public static List<MiheChannelCacheEntity> localgetcache(int chid, long start, long end, int duration, int len,boolean rev){
 
         try {
-            Session session = Constant.getSession();
-            Transaction tx = Constant.getTransact(session);
+            Session session = DataService.getSession();
+            Transaction tx = DataService.getTransact(session);
             String xtr;
             if(rev) {
                 xtr = "order by start desc";
@@ -172,8 +172,8 @@ public class IotSync {
         Transaction tx;
         Session session;
         try {
-            session = Constant.getSession();
-            tx = Constant.getTransact(session);
+            session = DataService.getSession();
+            tx = DataService.getTransact(session);
         }catch (Exception e){
             return val;
         }
@@ -181,6 +181,7 @@ public class IotSync {
             Query q = session.createQuery("from MiheOptionEntity where name = :cid");
             q.setParameter("cid", id);
             MiheOptionEntity x = (MiheOptionEntity) q.uniqueResult();
+            session.getTransaction().commit();
             //String x =  rdc.getValue(id);
             if(x != null) {
                 val =x.getVal();
@@ -196,8 +197,8 @@ public class IotSync {
 
     public static boolean localsavedata(int chid, long data,int start){
         try {
-            Session session = Constant.getSession();
-            Constant.getTransact(session);
+            Session session = DataService.getSession();
+            DataService.getTransact(session);
             MiheChannelDataEntity v = new MiheChannelDataEntity();
             v.setChid(chid);
             v.setData(data);
@@ -217,8 +218,8 @@ public class IotSync {
 
     public static boolean localsavecache(int chid, int avg,int min, int max,int duration,int start){
         try {
-            Session session = Constant.getSession();
-            Constant.getTransact(session);
+            Session session = DataService.getSession();
+            DataService.getTransact(session);
             MiheChannelCacheEntity v = new MiheChannelCacheEntity();
             v.setChid(chid);
             v.setDuration(duration);
@@ -241,8 +242,8 @@ public class IotSync {
 
     public static boolean setOption(String s, String value){
         try {
-            Session session = Constant.getSession();
-            Constant.getTransact(session);
+            Session session = DataService.getSession();
+            DataService.getTransact(session);
             Query q = session.createQuery("from MiheOptionEntity where name = :cid");
             q.setParameter("cid", s);
             MiheOptionEntity v = (MiheOptionEntity) q.uniqueResult();
@@ -265,10 +266,10 @@ public class IotSync {
     }
 
     public static boolean getConnected() {
-        if(!Constant.isSessionAlive())return false;
+        if(!DataService.isSessionAlive())return false;
         try{
-            Session session = Constant.getSession();
-            Transaction tx = Constant.getTransact(session);
+            Session session = DataService.getSession();
+            Transaction tx = DataService.getTransact(session);
             Query q = session.createQuery("from MiheOptionEntity where name = :cid");
             q.setParameter("cid","lastrun");
             q.uniqueResult();
@@ -294,8 +295,8 @@ public class IotSync {
         mwe.setWarn(data);
         mwe.setStart(System.currentTimeMillis());
         try {
-            Session session = Constant.getSession();
-            Constant.getTransact(session);
+            Session session = DataService.getSession();
+            DataService.getTransact(session);
             session.save(mwe);
             session.getTransaction().commit();
             Thread.sleep(10);
@@ -306,8 +307,8 @@ public class IotSync {
 
     public static long removeNotify(int chid, long start) {
         try {
-            Session session = Constant.getSession();
-            Constant.getTransact(session);
+            Session session = DataService.getSession();
+            DataService.getTransact(session);
             Query q = session.createQuery("from MiheWarnsEntity where chid = :cid and start = :st");
             q.setParameter("cid", chid);
             q.setParameter("st", start);
@@ -318,6 +319,7 @@ public class IotSync {
                 session.getTransaction().commit();
                 return 1;
             }else{
+                session.getTransaction().commit();
                 return 0;
             }
         } catch (Exception e) {
@@ -329,8 +331,8 @@ public class IotSync {
 
     public static long removeClustNotify(int chid, Long id) {
         try {
-            Session session = Constant.getSession();
-            Constant.getTransact(session);
+            Session session = DataService.getSession();
+            DataService.getTransact(session);
             Query q = session.createQuery("from MiheWarnsEntity where chid = :cid and start = :st");
             q.setParameter("cid", chid);
             q.setParameter("st", id);
@@ -340,6 +342,7 @@ public class IotSync {
                 session.getTransaction().commit();
                 return 1;
             }else{
+                session.getTransaction().commit();
                 return 0;
             }
         } catch (Exception e) {

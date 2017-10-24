@@ -2,8 +2,8 @@ package earth.server;
 
 import Radnor.Utils.LocalDataProvider;
 import earth.server.sz.Nanshan;
+import iotsampl.DataService;
 import iotsampl.iot.core.IotLogger;
-import iotsampl.Constant;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -54,7 +54,7 @@ public class Local {
         try {
             while (true) {
                 // 监测其他进程是否正常
-                //if (!Constant.isSessionAlive()) {
+                //if (!DataService.isSessionAlive()) {
                  //   Monitor.error("小时提示 - 主线程 : sessionFactory 尚未创建 / 创建异常 / 已关闭.");
                 //}
                 TimeUnit.SECONDS.sleep(3600);
@@ -62,7 +62,7 @@ public class Local {
         } catch (InterruptedException e) {
             //e.printStackTrace();
         } finally {
-            Constant.close();
+            DataService.close();
         }
     }
 }

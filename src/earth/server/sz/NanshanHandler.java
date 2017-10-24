@@ -6,6 +6,7 @@ package earth.server.sz;
 
 import Radnor.Utils.RadnorParse;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -55,18 +56,16 @@ public class NanshanHandler extends ChannelInboundHandlerAdapter {
             if (content.content().readableBytes() > 1024000) {
                 // Bigger Than 1MB
                 res = "Exp,9001";
-            } else if (uri.startsWith("/data/use.js")) {
-                    res = new RadnorParse().usejs();
             } else if (uri.startsWith("/data/deliver")) {
-                res = (new RadnorParse()).deliver(q, content.content());
+                res = (String) Class.forName("Radnor.Utils.RadnorParse").getMethod("deliver", String.class, ByteBuf.class).invoke(null,q,content.content());
             } else if (uri.startsWith("/m/api.do")) {
-                res = (new IotApi()).distributeCall(q, content.content());
+                res = (String) Class.forName("iotsampl.iot.cloud.IotApi").getMethod("distributeCall", String.class, ByteBuf.class).invoke(null,q,content.content());
             } else if (uri.startsWith("/cloud/deliver.do")) {
-                res = (new IotQuery()).deliver(q, content.content());
+                res = (String) Class.forName("iotsampl.iot.cloud.IotQuery").getMethod("deliver", String.class, ByteBuf.class).invoke(null,q,content.content());
             }else if (uri.equals("/")) {
-                        res = "欢迎 - Welcome - Bienvenue";
+                res = "欢迎 - Welcome - Bienvenue";
             } else {
-                        res = "Exp,1001";
+                res = "Exp,1001";
             }
 
             content.content().release();
@@ -163,11 +162,11 @@ public class NanshanHandler extends ChannelInboundHandlerAdapter {
 
                     String[] m = new String[6];
                     m[0] = "W";
-                    m[1] = Constant.ServerV;
-                    m[2] = Constant.ClientV;
-                    m[3] = Constant.ProtoV;
+                    m[1] = DataService.ServerV;
+                    m[2] = DataService.ClientV;
+                    m[3] = DataService.ProtoV;
                     m[4] = ((Long) (System.currentTimeMillis() / 1000)).intValue() + "";
-                    m[5] = Constant.SecureEnforce;
+                    m[5] = DataService.SecureEnforce;
                     res = String.join(",", m);
 
                 } else if (uri.startsWith("/test")) {
