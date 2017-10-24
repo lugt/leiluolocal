@@ -29,6 +29,5 @@
     <orderEntry type="library" name="commons-codec-1.9" level="project" />
     <orderEntry type="library" name="json-20160810" level="project" />
     <orderEntry type="library" name="RXTXcomm" level="application" />
-    <orderEntry type="library" name="Redis-Lettuce" level="project" />
   </component>
 </module>

@@ -101,8 +101,8 @@
       <file leaf-file-name="Automation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Radnor/Automation/Automation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="715">
+              <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -346,33 +346,9 @@
             <path>
               <item name="Leiluo-IotDemo" type="b2602c69:ProjectViewProjectNode" />
               <item name="leiluolocal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Leiluo-IotDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leiluolocal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Leiluo-IotDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leiluolocal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="sz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Leiluo-IotDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leiluolocal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Radnor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Leiluo-IotDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leiluolocal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Radnor" type="462c0819:PsiDirectoryNode" />
-              <item name="Automation" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="CloudServer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -393,7 +369,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.28952205" />
     <property name="settings.editor.selected.configurable" value="preferences.remoteExternalTools" />
@@ -1066,12 +1042,12 @@
       <workItem from="1507623121007" duration="82000" />
       <workItem from="1508303500474" duration="1358000" />
       <workItem from="1508773594009" duration="51000" />
-      <workItem from="1508822922629" duration="666000" />
+      <workItem from="1508822922629" duration="747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="520474000" />
+    <option name="totallyTimeSpent" value="520555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1743,8 +1719,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Radnor/Automation/Automation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="715">
+          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1756,13 +1732,13 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="artifact" />
-              <type id="jpa-descriptors" />
-              <type id="library" />
               <type id="javaee-facet-resources" />
+              <type id="jpa-descriptors" />
+              <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
-          <last-edited>radnor_local.jar</last-edited>
+          <last-edited>CloudServer</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1823,7 +1799,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>netty-all-4.1.7.Final</last-edited>
+          <last-edited>c3p0-0952</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

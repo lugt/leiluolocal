@@ -41,10 +41,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.7.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/lettuce-5.0.0-20170127.215700-29.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/mchange-commons-java-0.2.11.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/reactor-core-3.0.3.RELEASE.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/reactive-streams-1.0.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/seroUtils.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="C:/Program Files/Java/jdk1.8.0_60/jre/lib/ext/RXTXcomm.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
