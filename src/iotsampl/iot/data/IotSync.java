@@ -149,13 +149,19 @@ public class IotSync {
             }else{
                 xtr = "order by start";
             }
-            Query q = session.createQuery("from MiheChannelCacheEntity where chid = :chp and duration = :kkk and start >= :st and start <= :en " + xtr);
+
+            Query q = session.createQuery("from MiheChannelCacheEntity where chid = :chp");
             q.setMaxResults(len);
             q.setParameter("chp", chid);
-            q.setParameter("kkk", Duration.valueOf(""+duration));
+            /*
+            Query q = session.createQuery("from MiheChannelCacheEntity where chid = :chp and duration = :dur and start >= :st and start <= :en " + xtr);
+            q.setMaxResults(len);
+            q.setParameter("chp", chid);
+            //Duration dr =  Duration.ANNUAL;
+            q.setParameter("dur", Duration.ANNUAL);
             q.setParameter("st", start);
             q.setParameter("en", end);
-            //MiheChannelDataEntity udE = (MiheChannelDataEntity) q.uniqueResult();
+            //MiheChannelDataEntity udE = (MiheChannelDataEntity) q.uniqueResult();*/
             List<MiheChannelCacheEntity> x = q.getResultList();
             tx.commit();
             // rdc.zrange(id, start, end, len);
@@ -220,7 +226,7 @@ public class IotSync {
             DataService.getTransact(session);
             MiheChannelCacheEntity v = new MiheChannelCacheEntity();
             v.setChid(chid);
-            v.setDuration(duration);
+            v.setDuration(translateDuration(duration));
             v.setStart((long) start);
             v.setAvg((long) avg);
             v.setMax((long) max);
@@ -235,6 +241,23 @@ public class IotSync {
         }catch (Exception e){
             IotLogger.i("NullPointer - POI290 " + e.getMessage());
             return false;
+        }
+    }
+
+    private static Duration translateDuration(int duration) {
+        switch (duration){
+            case 36:
+                return Duration.TWELVE;
+            case 72:
+                return Duration.DAILY;
+            case 216:
+                return Duration.THREEDAY;
+            case 3600:
+                return Duration.SIMPLE;
+            case 86400:
+                return Duration.ANNUAL;
+            default:
+                return Duration.NONE;
         }
     }
 

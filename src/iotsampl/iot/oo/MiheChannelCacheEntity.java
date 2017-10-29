@@ -36,14 +36,14 @@ public class MiheChannelCacheEntity {
     }
 
     @Basic
-    @Column(name = "duration", nullable = true)
+    @Column(name = "duration", nullable = false)
     @Enumerated(EnumType.STRING)
-    public Integer getDuration() {
-        return duration.value;
+    public Duration getDuration() {
+        return duration;
     }
 
-    public void setDuration(Integer duration) {
-        this.duration = Duration.valueOf(""+duration);
+    public void setDuration(Duration duration) {
+        this.duration = duration;
     }
 
     @Basic
