@@ -173,7 +173,7 @@ public class IotCloudAutomate extends Thread{
 
     private boolean ClawExpire(long now, long index, int id) {
         List<MiheChannelDataEntity> pm = IotSync.localgetdata(id,index + 1,now, 62000, false);
-        //List<String> single = IotQueryDataProvider.getNodeOrig();
+        //List<String> single = IotQueryDataProvider.getNodeOrigal();
         //List<String> single = IotSync.localgetscore("gh"+id,index + 1, now,62000);
         long t = 0;
         if(pm != null && pm.size() > 0) {

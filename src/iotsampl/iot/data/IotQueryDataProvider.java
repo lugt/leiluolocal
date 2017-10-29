@@ -59,7 +59,7 @@ public class IotQueryDataProvider {
         return xd;
     }
 
-    public static List<String> getNodeOrig(Long id, long st, long end, int len,boolean rev) {
+    public static List<String> getNodeOrigal(Long id, long st, long end, int len, boolean rev) {
         List<MiheChannelDataEntity> x;
         int aid = IotIds.extractShorId(id);
         x  = IotSync.localgetdata(aid, st, end, len, rev);
@@ -84,7 +84,7 @@ public class IotQueryDataProvider {
     /**
      *  获取指定群组的告警信息（列表）
      * */
-    public static List<String> getWarnRListClust(int cluster, int len) {
+    public static List<String> getWarnReversedListClust(int cluster, int len) {
         long t = System.currentTimeMillis();
         if(cluster >= 0){
             List<MiheWarnsEntity> x = IotSync.localgetwarn(cluster,0,t,len,true);
@@ -103,7 +103,7 @@ public class IotQueryDataProvider {
         return vm;
     }
 
-    public static List<String> getWarnRList(long tid, int len) {
+    public static List<String> getWarnReversedList(long tid, int len) {
         long t = System.currentTimeMillis();
         int chid = IotIds.extractShorId(tid);
         List<MiheWarnsEntity> vx = IotSync.localgetwarn(chid,0,t,len, true);

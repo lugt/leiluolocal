@@ -1,6 +1,7 @@
 package iotsampl.iot.oo;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 
 @Entity
@@ -8,11 +9,11 @@ import java.io.Serializable;
 public class MiheChannelCacheEntity {
     private long globalid;
     private int chid;
-    private Serializable duration;
-    private Integer min;
-    private Integer max;
-    private Integer avg;
-    private Integer start;
+    private Duration duration;
+    private Long min;
+    private Long max;
+    private Long avg;
+    private Long start;
 
     @Id
     @Column(name = "globalid", nullable = false)
@@ -36,51 +37,52 @@ public class MiheChannelCacheEntity {
 
     @Basic
     @Column(name = "duration", nullable = true)
-    public Serializable getDuration() {
-        return duration;
+    @Enumerated(EnumType.STRING)
+    public Integer getDuration() {
+        return duration.value;
     }
 
-    public void setDuration(Serializable duration) {
-        this.duration = duration;
+    public void setDuration(Integer duration) {
+        this.duration = Duration.valueOf(""+duration);
     }
 
     @Basic
     @Column(name = "min", nullable = true)
-    public Integer getMin() {
+    public Long getMin() {
         return min;
     }
 
-    public void setMin(Integer min) {
+    public void setMin(Long min) {
         this.min = min;
     }
 
     @Basic
     @Column(name = "max", nullable = true)
-    public Integer getMax() {
+    public Long getMax() {
         return max;
     }
 
-    public void setMax(Integer max) {
+    public void setMax(Long max) {
         this.max = max;
     }
 
     @Basic
     @Column(name = "avg", nullable = true)
-    public Integer getAvg() {
+    public Long getAvg() {
         return avg;
     }
 
-    public void setAvg(Integer avg) {
+    public void setAvg(Long avg) {
         this.avg = avg;
     }
 
     @Basic
     @Column(name = "start", nullable = true)
-    public Integer getStart() {
+    public Long getStart() {
         return start;
     }
 
-    public void setStart(Integer start) {
+    public void setStart(Long start) {
         this.start = start;
     }
 

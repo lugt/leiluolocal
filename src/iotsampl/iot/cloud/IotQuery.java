@@ -92,7 +92,7 @@ public class IotQuery {
         Long TimeStamp = Long.parseLong(x[1]);
         if(x[2].startsWith("cluster_")){
             if(IotQueryDataProvider.removeNotificationCluster(TimeStamp,0)){
-                List<String> v = IotQueryDataProvider.getWarnRListClust(0, 7);
+                List<String> v = IotQueryDataProvider.getWarnReversedListClust(0, 7);
                 if(v != null && v.size() > 0) {
                     return parseListRtn(v);
                 }else{
@@ -105,7 +105,7 @@ public class IotQuery {
             long LongId = Long.parseLong(x[2]);
             int shortId = IotIds.extractShorId(LongId);
             if(IotQueryDataProvider.removeNotification(TimeStamp,shortId)) {
-                List<String> v = IotQueryDataProvider.getWarnRList(shortId, 7);
+                List<String> v = IotQueryDataProvider.getWarnReversedList(shortId, 7);
                 if(v != null && v.size() > 0) {
                     return parseListRtn(v);
                 }else{
@@ -157,7 +157,7 @@ public class IotQuery {
             if(ptc != null && (ptc.type == 1 || ptc.type == 2)){
                 // 直接数据检验
                 // 反向取值
-                ans = IotQueryDataProvider.getNodeOrig(id,start,now,len,false);
+                ans = IotQueryDataProvider.getNodeOrigal(id,start,now,len,false);
                 if(ans == null || ans.size() < 1){
                     return "DL,fail,ZeroData";
                 }
@@ -186,7 +186,7 @@ public class IotQuery {
         int len = Integer.parseUnsignedInt(x[2]);
         List<String> r;
         if (rev){
-            r = IotQueryDataProvider.getWarnRList(longChannelId, len);
+            r = IotQueryDataProvider.getWarnReversedList(longChannelId, len);
         }else{
             r = IotQueryDataProvider.getWarnList(longChannelId, len);
         }
@@ -284,7 +284,7 @@ public class IotQuery {
             end = Long.parseLong(x[4]);
         }
 
-        List<String> b = IotQueryDataProvider.getNodeOrig(id, st, end, len, rev);
+        List<String> b = IotQueryDataProvider.getNodeOrigal(id, st, end, len, rev);
 
         return parseListRtn(b);
     }
