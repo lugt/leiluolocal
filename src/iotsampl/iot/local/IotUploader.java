@@ -37,7 +37,7 @@ public class IotUploader extends Thread{
     *   上传安全检验
     * */
     private static final String AUTH_PHRASE = "#*CBDCYBVV*!*'A{5150231215671975549678070113093598753779818874173425479177197()(OP:P#!P_+)_)''''!+(@*&@&*^#)";
-    private static final String URL_UPLOAD = "http://121.42.198.57/m/api.do";//121.42.198.57
+    private static final String URL_UPLOAD = "http://120.78.134.129/m/api.do";//121.42.198.57
     private List<Integer> syncList;
     private List<Integer> cacheList;
     private List<Integer> cacheDuration;

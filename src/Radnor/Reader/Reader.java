@@ -401,7 +401,8 @@ public class Reader extends Thread implements SerialPortEventListener { // Seria
             IotManager.getOne().getNode(30304011).quick_record(s,t);
 
 
-            s = Long.toHexString(5005400);
+            long m = System.currentTimeMillis() / 1000000 - 1500009L;
+            s = Long.toHexString(5005400 + m);
             IotManager.getOne().getNode(40000001).quick_record(s,t);
 
             s = Long.toHexString(270300);
@@ -413,9 +414,9 @@ public class Reader extends Thread implements SerialPortEventListener { // Seria
             s = "cba";
             IotManager.getOne().getNode(40200001).quick_record(s,t);
 
-            s = "0";
+            s = "40";
             IotManager.getOne().getNode(40100002).quick_record(s,t);
-            s = "0";
+            s = "30";
             IotManager.getOne().getNode(40200002).quick_record(s,t);
         }
     }

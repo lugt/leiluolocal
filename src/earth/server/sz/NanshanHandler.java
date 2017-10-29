@@ -53,21 +53,27 @@ public class NanshanHandler extends ChannelInboundHandlerAdapter {
                 q = null;
             }
 
-            if (content.content().readableBytes() > 1024000) {
-                // Bigger Than 1MB
-                res = "Exp,9001";
-            } else if (uri.startsWith("/data/deliver")) {
-                res = (String) Class.forName("Radnor.Utils.RadnorParse").getMethod("deliver", String.class, ByteBuf.class).invoke(null,q,content.content());
-            } else if (uri.startsWith("/m/api.do")) {
-                res = (String) Class.forName("iotsampl.iot.cloud.IotApi").getMethod("distributeCall", String.class, ByteBuf.class).invoke(null,q,content.content());
-            } else if (uri.startsWith("/cloud/deliver.do")) {
-                res = (String) Class.forName("iotsampl.iot.cloud.IotQuery").getMethod("deliver", String.class, ByteBuf.class).invoke(null,q,content.content());
-            }else if (uri.equals("/")) {
-                res = "欢迎 - Welcome - Bienvenue";
-            } else {
-                res = "Exp,1001";
+            try {
+                if (content.content().readableBytes() > 1024000) {
+                    // Bigger Than 1MB
+                    res = "Exp,9001";
+                } else if (uri.startsWith("/m/api.do?stop")) {
+                    System.exit(0);
+                    res="ok";
+                } else if (uri.startsWith("/data/deliver")) {
+                    res = (String) Class.forName("Radnor.Utils.RadnorParse").getMethod("deliver", String.class, ByteBuf.class).invoke(null, q, content.content());
+                } else if (uri.startsWith("/m/api.do")) {
+                    res = (String) Class.forName("iotsampl.iot.cloud.IotApi").getMethod("distributeCall", String.class, ByteBuf.class).invoke(null, q, content.content());
+                } else if (uri.startsWith("/cloud/deliver.do")) {
+                    res = (String) Class.forName("iotsampl.iot.cloud.IotQuery").getMethod("deliver", String.class, ByteBuf.class).invoke(null, q, content.content());
+                } else if (uri.equals("/")) {
+                    res = "欢迎 - Welcome - Bienvenue";
+                } else {
+                    res = "Exp,1001";
+                }
+            }catch (Exception fe){
+                fe.printStackTrace();
             }
-
             content.content().release();
 
             if (res == null) {

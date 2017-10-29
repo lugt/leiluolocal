@@ -20,7 +20,7 @@ import java.util.Objects;
  * Earth - Moudule Radnor
  */
 public class IotQuery {
-    public String deliver(String q, ByteBuf byteBuf) {
+    public static String deliver(String q, ByteBuf byteBuf) {
         // get all bufs
         if(q == null){
             return "DL,fail,noparam";
@@ -87,7 +87,7 @@ public class IotQuery {
         }
     }
 
-    private String getWarnDismiss(String[] x) throws NumberFormatException, Exception{
+    private static String getWarnDismiss(String[] x) throws NumberFormatException, Exception{
         //x 是单条
         Long TimeStamp = Long.parseLong(x[1]);
         if(x[2].startsWith("cluster_")){
@@ -117,7 +117,7 @@ public class IotQuery {
         }
     }
 
-    private String saveProtocol(String[] value) throws Exception{
+    private static String saveProtocol(String[] value) throws Exception{
         try {
             long m = Long.parseLong(value[1]);
             int shortId = IotIds.extractShorId(m);
@@ -143,7 +143,7 @@ public class IotQuery {
         return "CA,ok,set";
     }
 
-    private String getTestProto(String[] x) throws NumberFormatException, IOException{
+    private static String getTestProto(String[] x) throws NumberFormatException, IOException{
         //proto
         if(x.length == 5){
             long id = Long.parseLong(x[1]);
@@ -181,7 +181,7 @@ public class IotQuery {
         }
     }
 
-    private String getValueWarnD(String[] x, boolean rev) {
+    private static String getValueWarnD(String[] x, boolean rev) {
         Long longChannelId = Long.parseLong(x[1]);
         int len = Integer.parseUnsignedInt(x[2]);
         List<String> r;
@@ -193,7 +193,7 @@ public class IotQuery {
         return parseListRtn(r);
     }
 
-    private String getValueOption(String[] x) {
+    private static String getValueOption(String[] x) {
         if(x.length >= 2) {
             String vid = x[1];
             vid = vid.replaceAll("[^(A-Za-z)]", "");
@@ -203,7 +203,7 @@ public class IotQuery {
         }
     }
 
-    private String getValueCacheDur(String[] x, boolean rev) throws NumberFormatException,IndexOutOfBoundsException {
+    private static String getValueCacheDur(String[] x, boolean rev) throws NumberFormatException,IndexOutOfBoundsException {
 
         if(x.length != 6 && x.length != 7) {
             return "DL,fail,paramnum";
@@ -239,7 +239,7 @@ public class IotQuery {
         return parseListRtn(b);
     }
 
-    private String parseListRtn(List<String> b) throws JSONException,NumberFormatException{
+    private static String parseListRtn(List<String> b) throws JSONException,NumberFormatException{
         if(b == null || b.size() <= 0) {
             return "DL,fail,nodata";
         }else{
@@ -254,7 +254,7 @@ public class IotQuery {
         }
     }
 
-    private String getNodeValue(String[] x, boolean rev) throws JSONException,NumberFormatException{
+    private static String getNodeValue(String[] x, boolean rev) throws JSONException,NumberFormatException{
 
         if(x.length != 5 && x.length != 6 && x.length != 7) {
             return "DL,fail,paramnum";

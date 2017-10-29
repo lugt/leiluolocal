@@ -5,15 +5,14 @@
 <hibernate-mapping>
 
     <class name="iotsampl.iot.oo.MiheChannelCacheEntity" table="mihe_channel_cache" schema="mihe">
-        <id name="globalid" type="java.lang.Long">
+        <id name="globalid">
             <column name="globalid" sql-type="bigint(20)"/>
-            <generator class="native"/>
         </id>
         <property name="chid">
             <column name="chid" sql-type="int(8)"/>
         </property>
-        <property name="duration" type="int">
-            <column name="duration" sql-type="int(11)" not-null="true"/>
+        <property name="duration">
+            <column name="duration" sql-type="enum('36', '72', '216', '3600', '86400')" not-null="true"/>
         </property>
         <property name="min">
             <column name="min" sql-type="int(11)" not-null="true"/>

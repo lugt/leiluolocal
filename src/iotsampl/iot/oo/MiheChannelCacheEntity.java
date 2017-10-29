@@ -1,25 +1,26 @@
 package iotsampl.iot.oo;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "mihe_channel_cache", schema = "mihe", catalog = "")
 public class MiheChannelCacheEntity {
-    private Long globalid;
-    private Integer chid;
-    private Integer duration;
-    private Long min;
-    private Long max;
-    private Long avg;
-    private Long start;
+    private long globalid;
+    private int chid;
+    private Serializable duration;
+    private Integer min;
+    private Integer max;
+    private Integer avg;
+    private Integer start;
 
     @Id
     @Column(name = "globalid", nullable = false)
-    public Long getGlobalid() {
+    public long getGlobalid() {
         return globalid;
     }
 
-    public void setGlobalid(Long globalid) {
+    public void setGlobalid(long globalid) {
         this.globalid = globalid;
     }
 
@@ -29,55 +30,57 @@ public class MiheChannelCacheEntity {
         return chid;
     }
 
-    public void setChid(int chid) { this.chid = chid; }
+    public void setChid(int chid) {
+        this.chid = chid;
+    }
 
     @Basic
     @Column(name = "duration", nullable = true)
-    public int getDuration() {
+    public Serializable getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Serializable duration) {
         this.duration = duration;
     }
 
     @Basic
     @Column(name = "min", nullable = true)
-    public Long getMin() {
+    public Integer getMin() {
         return min;
     }
 
-    public void setMin(Long min) {
+    public void setMin(Integer min) {
         this.min = min;
     }
 
     @Basic
     @Column(name = "max", nullable = true)
-    public Long getMax() {
+    public Integer getMax() {
         return max;
     }
 
-    public void setMax(Long max) {
+    public void setMax(Integer max) {
         this.max = max;
     }
 
     @Basic
     @Column(name = "avg", nullable = true)
-    public Long getAvg() {
+    public Integer getAvg() {
         return avg;
     }
 
-    public void setAvg(Long avg) {
+    public void setAvg(Integer avg) {
         this.avg = avg;
     }
 
     @Basic
     @Column(name = "start", nullable = true)
-    public Long getStart() {
+    public Integer getStart() {
         return start;
     }
 
-    public void setStart(Long start) {
+    public void setStart(Integer start) {
         this.start = start;
     }
 
@@ -102,7 +105,7 @@ public class MiheChannelCacheEntity {
     @Override
     public int hashCode() {
         int result = (int) (globalid ^ (globalid >>> 32));
-        result = 31 * result + (chid != null ? chid.hashCode() : 0);
+        result = 31 * result + chid;
         result = 31 * result + (duration != null ? duration.hashCode() : 0);
         result = 31 * result + (min != null ? min.hashCode() : 0);
         result = 31 * result + (max != null ? max.hashCode() : 0);

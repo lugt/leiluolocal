@@ -152,7 +152,7 @@ public class IotSync {
             Query q = session.createQuery("from MiheChannelCacheEntity where chid = :chp and duration = :kkk and start >= :st and start <= :en " + xtr);
             q.setMaxResults(len);
             q.setParameter("chp", chid);
-            q.setParameter("kkk", duration);
+            q.setParameter("kkk", ""+duration);
             q.setParameter("st", start);
             q.setParameter("en", end);
             //MiheChannelDataEntity udE = (MiheChannelDataEntity) q.uniqueResult();
@@ -188,8 +188,6 @@ public class IotSync {
             }
         }catch (Exception e){
             IotLogger.i("POIT2014 -- " + e.getMessage());
-        }finally {
-            if(tx != null) tx.commit();
         }
 
         return val;
@@ -223,10 +221,10 @@ public class IotSync {
             MiheChannelCacheEntity v = new MiheChannelCacheEntity();
             v.setChid(chid);
             v.setDuration(duration);
-            v.setStart((long) start);
-            v.setAvg((long) avg);
-            v.setMax((long) max);
-            v.setMin((long) min);
+            v.setStart(start);
+            v.setAvg(avg);
+            v.setMax(max);
+            v.setMin(min);
             session.save(v);
             session.getTransaction().commit();
             return true; //rdc.setValue(s,value);

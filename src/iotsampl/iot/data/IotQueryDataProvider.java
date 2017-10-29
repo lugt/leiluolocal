@@ -137,7 +137,7 @@ public class IotQueryDataProvider {
     }
 
 
-    public static MiheChannelCacheEntity getCacheLastOne(int gid,int duration) throws NullPointerException,NumberFormatException{
+    public static MiheChannelCacheEntity getCacheLastOne(int gid, int duration) throws NullPointerException,NumberFormatException{
         long now = System.currentTimeMillis() / 1000;
         List<MiheChannelCacheEntity> single = IotSync.localgetcache(gid,0,now,duration,1,true);
         if(single != null && single.size() > 0){
