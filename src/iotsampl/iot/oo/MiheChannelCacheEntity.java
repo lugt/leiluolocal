@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class MiheChannelCacheEntity {
     private long globalid;
     private int chid;
-    private Duration duration;
+    private Integer duration;
     private Long min;
     private Long max;
     private Long avg;
@@ -37,12 +37,11 @@ public class MiheChannelCacheEntity {
 
     @Basic
     @Column(name = "duration", nullable = false)
-    @Enumerated(EnumType.STRING)
-    public Duration getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 

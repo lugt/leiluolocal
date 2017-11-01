@@ -149,16 +149,11 @@ public class IotSync {
             }else{
                 xtr = "order by start";
             }
-
-            Query q = session.createQuery("from MiheChannelCacheEntity where chid = :chp");
-            q.setMaxResults(len);
-            q.setParameter("chp", chid);
-            /*
             Query q = session.createQuery("from MiheChannelCacheEntity where chid = :chp and duration = :dur and start >= :st and start <= :en " + xtr);
             q.setMaxResults(len);
             q.setParameter("chp", chid);
             //Duration dr =  Duration.ANNUAL;
-            q.setParameter("dur", Duration.ANNUAL);
+            q.setParameter( "dur" , translateDuration(duration));
             q.setParameter("st", start);
             q.setParameter("en", end);
             //MiheChannelDataEntity udE = (MiheChannelDataEntity) q.uniqueResult();*/
@@ -244,20 +239,20 @@ public class IotSync {
         }
     }
 
-    private static Duration translateDuration(int duration) {
+    private static int translateDuration(int duration) {
         switch (duration){
             case 36:
-                return Duration.TWELVE;
+                return 1;
             case 72:
-                return Duration.DAILY;
+                return 2;
             case 216:
-                return Duration.THREEDAY;
+                return 3;
             case 3600:
-                return Duration.SIMPLE;
+                return 4;
             case 86400:
-                return Duration.ANNUAL;
+                return 5;
             default:
-                return Duration.NONE;
+                return 0;
         }
     }
 

@@ -12,7 +12,7 @@
             <column name="chid" sql-type="int(8)"/>
         </property>
         <property name="duration">
-            <column name="duration" sql-type="enum('36', '72', '216', '3600', '86400')" not-null="true"/>
+            <column name="duration" sql-type="int(1)" not-null="true"/>
         </property>
         <property name="min">
             <column name="min" sql-type="int(11)" not-null="true"/>

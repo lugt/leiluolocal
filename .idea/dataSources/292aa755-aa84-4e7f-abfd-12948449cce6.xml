@@ -27,7 +27,7 @@
     </column>
     <column id="12" parent="5" name="duration">
       <Position>3</Position>
-      <DataType>enum(&apos;36&apos;, &apos;72&apos;, &apos;216&apos;, &apos;3600&apos;, &apos;86400&apos;)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
     </column>
     <column id="13" parent="5" name="min">
       <Position>4</Position>
