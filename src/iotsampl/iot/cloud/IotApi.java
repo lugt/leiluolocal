@@ -109,9 +109,9 @@ public class IotApi {
                     if(datas.length != 3){
                         return "CA,fail,adding4," + Long.toHexString(lastindex);
                     }
-                    int havg = Integer.parseInt(datas[0],16);
-                    int hmin = Integer.parseInt(datas[1],16);
-                    int hmax = Integer.parseInt(datas[2],16);
+                    int hmin = Integer.parseInt(datas[0],16);
+                    int hmax = Integer.parseInt(datas[1],16);
+                    int havg = Integer.parseInt(datas[2],16);
                     if (start > lastindex) {
                         IotSync.localsavecache(shortId,havg,hmin,hmax,duration,start);
                         IotCloudAutomate.ClawCheckonDuration(shortId,start,hmin,hmax,havg,duration);

@@ -83,6 +83,7 @@ public class Reader extends Thread implements SerialPortEventListener { // Seria
      */
     public int startComPort() {
         // 通过串口通信管理类获得当前连接上的串口列表
+
         portList = CommPortIdentifier.getPortIdentifiers();
 
         while (portList.hasMoreElements()) {
@@ -410,7 +411,6 @@ public class Reader extends Thread implements SerialPortEventListener { // Seria
 
             s = "1630";
             IotManager.getOne().getNode(40100001).quick_record(s,t);
-
             s = "cba";
             IotManager.getOne().getNode(40200001).quick_record(s,t);
 

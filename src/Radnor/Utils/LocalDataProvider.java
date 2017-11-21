@@ -23,18 +23,26 @@ public class LocalDataProvider {
 
     private static Reader cRead;
 
-    public static void startAsService(){
+    public static void startAsService() throws Exception{
         IotManager.getOne();
         int i;
 
         cRead = new Reader();
+        IotLogger.i("开始启动串口部分");
         i = cRead.startComPort();
+        IotLogger.i("串口部分结束");
         if (i == 1) {
             // 启动线程来处理收到的数据
+            IotLogger.i("启动运行线程ing");
             cRead.init();
             cRead.start();
+            IotLogger.i("启动运行线程完毕");
         }else{
-            if(Local.DEBUG) cRead.start();
+            if(Local.DEBUG){
+                IotLogger.i("启动调试线程ing");
+                cRead.start();
+                IotLogger.i("启动了调试线程");
+            }
         }
     }
     public static void startIotSync() {

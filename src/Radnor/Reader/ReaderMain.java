@@ -42,7 +42,8 @@ public class ReaderMain {
         try {
             while (true) {
                 // 监测其他进程是否正常
-                TimeUnit.SECONDS.sleep(3600);
+                TimeUnit.SECONDS.sleep(10);
+                IotLogger.i("主线程正在运行");
             }
         } catch (InterruptedException e) {
             //e.printStackTrace();

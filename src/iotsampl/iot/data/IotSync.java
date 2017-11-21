@@ -35,6 +35,7 @@ public class IotSync {
         inis = true;
         try {
             DataService.setUp();
+            IotLogger.i("启动数据服务已经完毕");
         } catch (Exception e) {
             Monitor.error("Hibernate 服务启动失败" +e.getMessage());
             System.exit(0);
