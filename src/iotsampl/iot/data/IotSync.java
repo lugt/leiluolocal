@@ -11,6 +11,7 @@ import org.hibernate.query.Query;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by Frapo on 2017/8/8.
@@ -51,7 +52,7 @@ public class IotSync {
         } catch (IOException e) {
             IotLogger.o(e.getLocalizedMessage());
         } catch (Exception e) {
-            e.printStackTrace();
+            IotLogger.i(e.getMessage());
         }
     }
 
@@ -207,11 +208,11 @@ public class IotSync {
             session.getTransaction().commit();
             return true; //rdc.setValue(s,value);
         }catch (NullPointerException e){
-            e.printStackTrace();
+            IotLogger.i(e.getMessage());
             IotLogger.i("NullPointer - POI@@32");
             return false;
         }catch (Exception e){
-            e.printStackTrace();
+            IotLogger.i(e.getMessage());
             return false;
         }
     }
@@ -231,7 +232,7 @@ public class IotSync {
             session.getTransaction().commit();
             return true; //rdc.setValue(s,value);
         }catch (NullPointerException e){
-            e.printStackTrace();
+            IotLogger.i(e.getMessage());
             IotLogger.i("NullPointer - POI@@32");
             return false;
         }catch (Exception e){
@@ -273,11 +274,11 @@ public class IotSync {
             session.getTransaction().commit();
             return true; //rdc.setValue(s,value);
         }catch (NullPointerException e){
-            e.printStackTrace();
+            IotLogger.i(e.getMessage());
             IotLogger.i("NullPointer - POI@@32");
             return false;
         }catch (Exception e){
-            e.printStackTrace();
+            IotLogger.i(e.getMessage());
             return false;
         }
     }

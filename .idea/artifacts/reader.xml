@@ -17,7 +17,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/Libs/lib/jna-4.1.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/Libs/lib/jna-platform-4.1.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.35-bin.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.7.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/c3p0-0.9.5.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/hibernate-validator-5.3.4.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/hibernate-validator-annotation-processor-5.3.4.Final.jar" path-in-jar="/" />
@@ -45,6 +44,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/reactor-core-3.0.3.RELEASE.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/reactive-streams-1.0.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/seroUtils.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.17.Final.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

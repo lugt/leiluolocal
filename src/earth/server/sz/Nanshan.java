@@ -18,11 +18,11 @@ import iotsampl.iot.core.IotLogger;
 public class Nanshan {
 
     public void start(int port) throws Exception {
-        EventLoopGroup bossGroup = new NioEventLoopGroup(2);
-        EventLoopGroup workerGroup = new NioEventLoopGroup(5);
+        EventLoopGroup bossGroup = new NioEventLoopGroup(3);
+        EventLoopGroup workerGroup = new NioEventLoopGroup(8);
         //try {
         ServerBootstrap b = new ServerBootstrap();
-        b.option(ChannelOption.SO_KEEPALIVE,false);
+        //b.option(ChannelOption.SO_KEEPALIVE,false);
         b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override

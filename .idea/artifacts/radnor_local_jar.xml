@@ -41,6 +41,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.7.Final.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/lettuce-5.0.0-20170127.215700-29.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/mchange-commons-java-0.2.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libs/netty-all-4.1.17.Final.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
