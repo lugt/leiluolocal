@@ -29,7 +29,12 @@ public class LocalDataProvider {
 
         cRead = new Reader();
         IotLogger.i("开始启动串口部分");
-        i = cRead.startComPort();
+        i = 0;
+        try {
+            //i = cRead.startComPort();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         IotLogger.i("串口部分结束");
         if (i == 1) {
             // 启动线程来处理收到的数据
